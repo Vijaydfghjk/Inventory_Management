@@ -58,7 +58,7 @@ A backend-only inventory management system built with Go and the Gin framework. 
 
 ## 📁 Project Structure (Simplified)
 
-
+```plaintext
 ├── controllers/
 │   ├── product_controller.go
 │   ├── order_controller.go
@@ -73,6 +73,9 @@ A backend-only inventory management system built with Go and the Gin framework. 
 │   └── product.go
 │   └── order.go
 │   └── user.go
+├── Dockerfile
+├── docker-compose.yml
+├── .env
 ├── main.go
 
 
