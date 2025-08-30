@@ -56,6 +56,8 @@ A backend-only inventory management system built with Go and the Gin framework. 
 
 ---
 
+![System Architecture](Diagram.png)
+
 ## 📁 Project Structure (Simplified)
 
 ```
