@@ -1,0 +1,71 @@
+**
+version: '3.8'
+
+services:
+  api:
+    build: .  # Use Dockerfile in current directory
+    ports:
+      - "8080:8080"  # Host:Container port mapping
+    depends_on:
+      - db  # Ensure DB starts before API
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: mypwd
+      DB_NAME: inventory_management
+    networks:
+      - backend
+
+  db:
+    image: mysql:8  # Use official MySQL image
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pwd
+      MYSQL_DATABASE: inventory_management
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql  # Persist DB data
+    networks:
+      - backend
+
+volumes:
+  dbdata:  # Named volume for MySQL data
+
+networks:
+  backend:  # Shared network for API and DB
+
+
+Dockerr
+
+
+# Use official Go image
+FROM golang:1.23
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy Go dependency files first
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy the full source code
+COPY . .
+
+# Build the Go app into a binary named "main"
+RUN go build -o main .
+
+# Expose port the app runs on
+EXPOSE 8080
+
+# Run the app
+CMD ["./main"]
+
+
+
+1. Docker containes  Go dependency and packages to build image for api 
+2. docker compose yml file to run the multiple container which is api and db 
+
+**
+

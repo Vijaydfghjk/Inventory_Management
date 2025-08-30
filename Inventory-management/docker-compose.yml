@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: Vijay@123
+      DB_NAME: inventory_management
+    networks:
+      - backend
+
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Vijay@123
+      MYSQL_DATABASE: inventory_management
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - backend
+
+volumes:
+  dbdata: 
+
+networks:
+  backend:
