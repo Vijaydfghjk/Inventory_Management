@@ -59,7 +59,7 @@ A backend-only inventory management system built with Go and the Gin framework. 
 ## 📁 Project Structure (Simplified)
 
 ```
-├── Token/
+├── Token_stuff/
 │   └── jwt.go
 ├── Service/
 │   ├── order_service.go
