@@ -59,29 +59,29 @@ A backend-only inventory management system built with Go and the Gin framework. 
 ## 📁 Project Structure (Simplified)
 
 ```
-├── Token_stuff/
-│   └── jwt.go
-├── Service/
-│   ├── order_service.go
-│   └── product_service.go
-├── Dbrepository/
-│   ├── order_repository.go
-│   ├── product_repository.go
-│   └── user_repository.go
 ├── controllers/
 │   ├── product_controller.go
 │   ├── order_controller.go
 │   └── user_controller.go
+├── Dbrepository/
+│   ├── order_repository.go
+│   ├── product_repository.go
+│   └── user_repository.go
 ├── middleware/
 │   └── logger.go
-├── routes/
-│   ├── product_routes.go
-│   ├── order_routes.go
-│   └── user_routes.go
 ├── models/
 │   ├── product.go
 │   ├── order.go
 │   └── user.go
+├── routes/
+│   ├── product_routes.go
+│   ├── order_routes.go
+│   └── user_routes.go
+├── Service/
+│   ├── order_service.go
+│   └── product_service.go
+├── Token_stuff/
+│   └── jwt.go
 ├── Dockerfile
 ├── docker-compose.yml
 ├── .env
