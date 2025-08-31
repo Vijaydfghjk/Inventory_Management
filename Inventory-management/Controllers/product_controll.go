@@ -13,7 +13,7 @@ import (
 )
 
 type Multiple_serialnumber struct {
-	Serial_number string `json:"serial_number"`
+	Serial_number string `json:"serial_number" binding:"required"`
 }
 
 type Product_controll struct {
@@ -217,11 +217,19 @@ func (a *Product_controll) Delete_product(c *gin.Context) {
 func (a *Product_controll) In_use(c *gin.Context) {
 
 	var borrower *models.Borrower_Request
+
 	saved := []*models.Borrower{}
+
 	emailto := ""
 	if err := c.ShouldBindJSON(&borrower); err != nil {
 
 		c.JSON(http.StatusBadRequest, gin.H{"Message": err.Error()})
+		return
+	}
+
+	if borrower.View == nil {
+
+		c.JSON(http.StatusBadRequest, gin.H{"Message": "Serialnumber required"})
 		return
 	}
 	for _, v := range borrower.View {
@@ -320,6 +328,12 @@ func (a *Product_controll) Make_instock(c *gin.Context) {
 
 	item_details := ""
 	for _, val := range temp {
+
+		if err := a.validate.Struct(val); err != nil {
+
+			c.JSON(http.StatusBadRequest, gin.H{"Message": err.Error()})
+			return
+		}
 
 		to, _ = a.service.Getby_username(val.Serial_number)
 

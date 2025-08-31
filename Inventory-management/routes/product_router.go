@@ -26,4 +26,14 @@ func Register_product_routes(router *gin.Engine, pdu_controll controllers.Produc
 
 	// http://localhost:8080/inventory_view?status=inuse
 
+	/*
+	   	{
+
+	     "Name": "Vijay",
+	     "Email": "Ram123@gamil.com",
+	     "Password": "12345",
+	     "Role": "member"
+	   }
+
+	*/
 }

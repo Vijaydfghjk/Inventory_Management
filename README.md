@@ -11,6 +11,38 @@ A backend-only inventory management system built with Go and the Gin framework. 
 - JWT or token-based authentication (assumed via `AuthMiddleware`)
 
 ---
+Features:
+
+1. Inuse  
+   - Input: u_name, list of serial_numbers  
+   - Action: Assigns serial numbers to the user  
+   - Notification: Sends email to the user confirming assignment  
+
+2. Instock  
+   - Input: list of serial_numbers  
+   - Action: Removes user assignment, marks items as "In Stock"  
+   - Notification: Sends email to the user confirming release  
+
+3. Filer_by_user  
+   - Input: use_by (username in URL param)  
+   - Action: Returns all serial numbers currently assigned to that user  
+
+4. Inventory_view  
+   - Input: Optional query parameters (e.g. status=inuse, status=instock)  
+   - Action: Returns full inventory or filtered view based on query  
+
+5. Product & Order CRUD  
+   - Action: Supports Create, Read, Update, and Delete operations for both Product and Order entities  
+   - Usage: Enables full lifecycle management of inventory items and order records  
+
+6. Admin-only Order Access  
+   - Restriction: Order-related APIs are protected and accessible only by users with admin privileges  
+   - Purpose: Ensures secure handling of order operations and prevents unauthorized access  
+
+7. Goroutine-based Email Dispatch  
+   - Implementation: Email notifications are sent asynchronously using Goroutines  
+   - Benefit: Improves performance and responsiveness of API endpoints during notification handling  
+
 
 ### 📦 Product Management (`member` access)
 | Method | Endpoint                     | Description                          |
