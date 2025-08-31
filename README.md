@@ -17,13 +17,13 @@ Features:
    - Input: u_name, list of serial_numbers  
    - Action: Assigns serial numbers to the user  
    - Notification: Sends email to the user confirming assignment  
-   - Icon: [In Use Icon – OnlineWebFonts](https://www.onlinewebfonts.com/icon/240569)  
+  
 
 2. Instock 📦  
    - Input: list of serial_numbers  
    - Action: Removes user assignment, marks items as "In Stock"  
    - Notification: Sends email to the user confirming release  
-   - Icon: [In Stock Icon – Flaticon](https://www.flaticon.com/free-icon/in-stock_9226414)  
+  
 
 3. Filer_by_user 👤  
    - Input: use_by (username in URL param)  
